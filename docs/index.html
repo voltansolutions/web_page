@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Voltan Solutions | Software a la medida y automatización</title>
+  <meta name="description" content="Herramientas tecnológicas a la medida que automatizan y optimizan tu operación. Diagnóstico gratuito y piloto en 4–6 semanas.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --t: #5BBFBA;
+      --b: #3A2114;
+      --m: #666666;
+      --bg: #F4F4F4;
+      --w: #ffffff;
+      --max: 1080px;
+      --radius: 16px;
+      --shadow: 0 12px 40px rgba(58, 33, 20, 0.06);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Montserrat, system-ui, sans-serif;
+      color: var(--b);
+      line-height: 1.55;
+      background: var(--w);
+    }
+    a { color: var(--t); }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 1.25rem; }
+    /* Nav */
+    header.site {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(91, 191, 186, 0.2);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.65rem 0;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      text-decoration: none;
+      color: inherit;
+    }
+    .brand:hover { text-decoration: none; }
+    .brand img { height: 44px; width: auto; display: block; }
+    nav ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem 1rem;
+      justify-content: flex-end;
+    }
+    nav a {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--b);
+      opacity: 0.85;
+    }
+    nav a:hover { color: var(--t); opacity: 1; text-decoration: none; }
+    /* Hero */
+    .hero {
+      padding: 3.5rem 0 4rem;
+      background:
+        radial-gradient(ellipse 90% 60% at 50% -10%, rgba(91, 191, 186, 0.18), transparent 55%),
+        linear-gradient(180deg, var(--bg) 0%, var(--w) 45%);
+    }
+    .hero-grid {
+      display: grid;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    @media (min-width: 880px) {
+      .hero-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+    }
+    .hero-copy h1 {
+      font-size: clamp(1.85rem, 4.2vw, 2.55rem);
+      font-weight: 800;
+      line-height: 1.12;
+      margin: 0 0 0.75rem;
+      letter-spacing: -0.02em;
+    }
+    .tagline {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--t);
+      font-weight: 600;
+      margin: 0 0 1rem;
+      max-width: 36ch;
+    }
+    .lead { font-size: 1.05rem; color: var(--m); margin: 0 0 1.5rem; max-width: 42ch; }
+    .hero-cta { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 2.75rem;
+      padding: 0 1.35rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .btn:hover { transform: translateY(-1px); text-decoration: none; }
+    .btn-pri { background: var(--t); color: var(--w) !important; box-shadow: 0 4px 16px rgba(91, 191, 186, 0.35); }
+    .btn-pri:hover { color: var(--w) !important; }
+    .btn-sec {
+      background: var(--w);
+      color: var(--b) !important;
+      border: 2px solid rgba(58, 33, 20, 0.15);
+    }
+    .hero-art {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-card {
+      background: var(--w);
+      border-radius: var(--radius);
+      padding: 2rem 1.75rem;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(91, 191, 186, 0.25);
+      text-align: center;
+      max-width: 340px;
+    }
+    .hero-card img { width: min(220px, 70%); height: auto; margin-bottom: 1rem; }
+    .hero-card p { margin: 0; font-size: 0.82rem; color: var(--m); }
+    /* Sections */
+    section { padding: 3.75rem 0; scroll-margin-top: 72px; }
+    section.sec--alt { background: var(--bg); }
+    .sec-head {
+      max-width: 40rem;
+      margin-bottom: 2rem;
+    }
+    .sec-kicker {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--t);
+      margin: 0 0 0.5rem;
+    }
+    .sec-head h2 { font-size: clamp(1.35rem, 2.8vw, 1.75rem); margin: 0 0 0.65rem; font-weight: 800; }
+    .sec-head p { margin: 0; color: var(--m); font-size: 0.98rem; }
+    blockquote.focus {
+      margin: 0 0 2.5rem;
+      padding: 1.35rem 1.5rem;
+      border-left: 4px solid var(--t);
+      background: rgba(91, 191, 186, 0.08);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--b);
+    }
+    .grid-4 {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 560px) { .grid-4 { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 900px) { .grid-4 { grid-template-columns: repeat(4, 1fr); } }
+    .card {
+      background: var(--w);
+      border-radius: var(--radius);
+      padding: 1.35rem 1.15rem;
+      border: 1px solid rgba(58, 33, 20, 0.07);
+      box-shadow: 0 4px 20px rgba(58, 33, 20, 0.04);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .card:hover { border-color: rgba(91, 191, 186, 0.45); box-shadow: var(--shadow); }
+    .card h3 { font-size: 0.92rem; margin: 0 0 0.45rem; font-weight: 700; }
+    .card p { margin: 0; font-size: 0.84rem; color: var(--m); line-height: 1.45; }
+    .split {
+      display: grid;
+      gap: 1.5rem;
+      align-items: start;
+    }
+    @media (min-width: 800px) { .split { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+    .panel {
+      background: var(--w);
+      border-radius: var(--radius);
+      padding: 1.5rem 1.35rem;
+      border: 1px solid rgba(58, 33, 20, 0.08);
+    }
+    .panel h3 { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--t); margin: 0 0 0.6rem; }
+    .panel p { margin: 0; font-size: 0.9rem; color: var(--m); }
+    .chips { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 1.5rem; }
+    .chip {
+      font-size: 0.76rem;
+      padding: 0.4rem 0.75rem;
+      border-radius: 999px;
+      background: var(--w);
+      border: 1px solid rgba(91, 191, 186, 0.35);
+      color: var(--b);
+      line-height: 1.35;
+    }
+    .steps {
+      display: grid;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+    @media (min-width: 700px) { .steps { grid-template-columns: repeat(3, 1fr); } }
+    .step {
+      text-align: center;
+      padding: 1.25rem 1rem;
+      background: var(--w);
+      border-radius: var(--radius);
+      border: 1px solid rgba(58, 33, 20, 0.06);
+    }
+    .step-num {
+      width: 2.4rem;
+      height: 2.4rem;
+      margin: 0 auto 0.65rem;
+      border-radius: 50%;
+      border: 2px solid var(--t);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.95rem;
+      background: var(--bg);
+    }
+    .step h4 { margin: 0 0 0.35rem; font-size: 0.88rem; }
+    .step p { margin: 0; font-size: 0.8rem; color: var(--m); }
+    .outcomes {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 1rem;
+    }
+    @media (min-width: 520px) { .outcomes { grid-template-columns: 1fr 1fr; } }
+    .out-item {
+      display: flex;
+      gap: 0.65rem;
+      align-items: flex-start;
+      padding: 0.85rem 1rem;
+      background: var(--w);
+      border-radius: 12px;
+      border: 1px solid rgba(58, 33, 20, 0.06);
+      font-size: 0.84rem;
+      font-weight: 600;
+    }
+    .out-item::before {
+      content: "";
+      flex-shrink: 0;
+      width: 6px;
+      height: 6px;
+      margin-top: 0.42rem;
+      border-radius: 50%;
+      background: var(--t);
+      box-shadow: 0 0 0 4px rgba(91, 191, 186, 0.2);
+    }
+    .cta-band {
+      margin-top: 2.5rem;
+      padding: 2rem 1.5rem;
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, var(--b) 0%, #2a1810 100%);
+      color: var(--w);
+      text-align: center;
+    }
+    .cta-band p { margin: 0 0 1rem; font-size: 1.1rem; font-weight: 700; }
+    .cta-band .btn-pri { background: var(--t); }
+    /* Contact */
+    .contact-cards {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 640px) { .contact-cards { grid-template-columns: repeat(3, 1fr); } }
+    .c-card {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      background: var(--w);
+      border-radius: var(--radius);
+      border: 1px solid rgba(58, 33, 20, 0.08);
+    }
+    .c-card .lbl { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--m); margin: 0 0 0.4rem; }
+    .c-card a { font-size: 0.95rem; font-weight: 700; text-decoration: none; word-break: break-word; }
+    .c-card a:hover { text-decoration: underline; }
+    footer {
+      padding: 2rem 0;
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--m);
+      border-top: 1px solid rgba(58, 33, 20, 0.08);
+    }
+  </style>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#inicio" aria-label="Voltan Solutions — inicio">
+        <img src="assets/logo_principal.svg" width="140" height="44" alt="">
+      </a>
+      <nav aria-label="Principal">
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#soluciones">Soluciones</a></li>
+          <li><a href="#nosotros">Sobre nosotros</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <div class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <h1>Voltan Solutions</h1>
+          <p class="tagline">Impulsando la revolución de los procesos empresariales mediante tecnología</p>
+          <p class="lead">Desarrollamos herramientas tecnológicas a la medida que automatizan y optimizan las operaciones de tu empresa.</p>
+          <div class="hero-cta">
+            <a class="btn btn-pri" href="#contacto">Contactar</a>
+            <a class="btn btn-sec" href="#servicios">Ver servicios</a>
+          </div>
+        </div>
+        <div class="hero-art">
+          <div class="hero-card">
+            <img src="assets/logo_principal.svg" alt="">
+            <p>Identidad corporativa oficial · Manual de marca v1.0</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section id="enfoque" class="sec--alt">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="sec-kicker">Enfoque</p>
+          <h2>Operación primero</h2>
+          <p>En Voltan Solutions invertimos el mayor esfuerzo en entender profundamente tu operación antes de iniciar desarrollos o proponer soluciones.</p>
+        </div>
+        <blockquote class="focus">No se trata solo de implementar herramientas, sino de transformar la forma en que opera tu negocio.</blockquote>
+      </div>
+    </section>
+
+    <section id="servicios">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="sec-kicker">Líneas de trabajo</p>
+          <h2>Servicios</h2>
+          <p>Cuatro áreas para cubrir el ciclo de diseño, automatización e integración.</p>
+        </div>
+        <div class="grid-4">
+          <article class="card">
+            <h3>Desarrollo de software a la medida</h3>
+            <p>Soluciones adaptadas a tu negocio.</p>
+          </article>
+          <article class="card">
+            <h3>Automatización de procesos</h3>
+            <p>Reducción de tareas manuales.</p>
+          </article>
+          <article class="card">
+            <h3>Inteligencia artificial</h3>
+            <p>Optimización y toma de decisiones inteligentes.</p>
+          </article>
+          <article class="card">
+            <h3>Integración de sistemas</h3>
+            <p>Conexión eficiente de plataformas.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="soluciones" class="sec--alt">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="sec-kicker">Casos de uso</p>
+          <h2>Soluciones</h2>
+          <p>Software que automatiza procesos industriales, con foco en ventas y operación.</p>
+        </div>
+        <div class="split">
+          <div class="panel">
+            <h3>Ejemplo en campo</h3>
+            <p>En un contexto como una feria de proveedores, el equipo de ingeniería puede mostrar cómo automatizar cotizaciones en campo: un chatbot de WhatsApp genera cotizaciones en tiempo real y envía el PDF automáticamente. Los asesores o técnicos pueden cotizar desde WhatsApp en segundos, sin depender solo de oficina, para reducir tiempos comerciales y errores operativos y aligerar cuellos de botella en ventas y operación.</p>
+          </div>
+          <div>
+            <h3 style="margin:0 0 0.75rem;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--t);">Qué puedes lograr con nosotros</h3>
+            <div class="outcomes">
+              <div class="out-item">Mayor eficiencia operativa</div>
+              <div class="out-item">Reducción de tiempos en procesos clave</div>
+              <div class="out-item">Mejor toma de decisiones basada en datos</div>
+              <div class="out-item">Automatización de tareas repetitivas</div>
+              <div class="out-item" style="grid-column:1/-1;">Equipos enfocados en actividades de alto valor</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="nosotros">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="sec-kicker">Empresa</p>
+          <h2>Sobre nosotros</h2>
+          <p>Voltan Solutions transforma y revoluciona los procesos empresariales usando tecnología.</p>
+        </div>
+        <div class="split" style="margin-bottom:2rem;">
+          <div class="panel">
+            <h3>Cómo lo hacemos</h3>
+            <p>Desarrollamos herramientas tecnológicas a la medida; estas automatizan y optimizan las operaciones de tu empresa.</p>
+          </div>
+          <div class="panel">
+            <h3>Para qué lo hacemos</h3>
+            <p>Permitimos a las organizaciones trabajar de manera más eficiente, liberamos el potencial de los equipos al reducir la carga operativa, para que puedan enfocarse en actividades estratégicas.</p>
+          </div>
+        </div>
+        <h3 style="margin:0 0 0.75rem;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--t);">Qué nos diferencia</h3>
+        <div class="chips" role="list">
+          <span class="chip" role="listitem">Entendemos tu operación antes de proponer soluciones</span>
+          <span class="chip" role="listitem">Diseñamos tecnología alineada a objetivos de negocio</span>
+          <span class="chip" role="listitem">Nos enfocamos en resultados medibles</span>
+          <span class="chip" role="listitem">Implementamos de forma ágil y escalable</span>
+          <span class="chip" role="listitem">Acompañamos todo el proceso de transformación</span>
+        </div>
+        <h3 style="margin:2rem 0 1rem;font-size:1rem;font-weight:800;">Cómo trabajamos</h3>
+        <div class="steps">
+          <article class="step">
+            <div class="step-num" aria-hidden="true">1</div>
+            <h4>Diagnóstico inicial (gratuito)</h4>
+            <p>Reunión de levantamiento de información para comprender a fondo tus procesos, necesidades y objetivos.</p>
+          </article>
+          <article class="step">
+            <div class="step-num" aria-hidden="true">2</div>
+            <h4>Propuesta personalizada</h4>
+            <p>Analizamos la información recopilada y diseñamos una solución ajustada a tu operación. Presentamos alcance inicial y propuesta económica.</p>
+          </article>
+          <article class="step">
+            <div class="step-num" aria-hidden="true">3</div>
+            <h4>Implementación de piloto (4–6 semanas)</h4>
+            <p>Primer piloto en un proceso clave. Evidencias de mejora, reducción de riesgos y decisiones basadas en resultados.</p>
+          </article>
+        </div>
+        <div class="panel" style="margin-top:2rem;text-align:center;">
+          <p style="margin:0;font-size:0.95rem;color:var(--b);font-weight:600;">Trabajamos contigo desde el primer diagnóstico hasta la implementación, asegurando que cada solución genere valor desde etapas tempranas.</p>
+        </div>
+        <div class="cta-band">
+          <p>Transforma tu operación con tecnología inteligente</p>
+          <a class="btn btn-pri" href="#contacto">Escribirnos</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="sec--alt">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="sec-kicker">Canales oficiales</p>
+          <h2>Contacto</h2>
+          <p>Diagnóstico inicial gratuito. Luego propuesta personalizada y, si encaja, piloto en 4–6 semanas.</p>
+        </div>
+        <div class="contact-cards">
+          <div class="c-card">
+            <p class="lbl">Correo</p>
+            <a href="mailto:contacto@voltan.co">contacto@voltan.co</a>
+          </div>
+          <div class="c-card">
+            <p class="lbl">Teléfono</p>
+            <a href="tel:+573128255775">+57 312 825 5775</a>
+          </div>
+          <div class="c-card">
+            <p class="lbl">Teléfono</p>
+            <a href="tel:+573016395759">+57 301 639 5759</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p style="margin:0;">© Voltan Solutions · Manual de marca v1.0 · Contenido según brochure y manual corporativo</p>
+    </div>
+  </footer>
+</body>
+</html>
