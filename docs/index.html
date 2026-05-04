@@ -10,14 +10,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <style>
     :root {
-      --t: #5BBFBA;
-      --b: #3A2114;
-      --m: #666666;
-      --bg: #F4F4F4;
+      --t: #4AB0AB;
+      --t-deep: #3A9A95;
+      --t-soft: rgba(74, 176, 171, 0.12);
+      --b: #2D1A10;
+      --m: #5C5652;
+      --bg: #F5F6F7;
       --w: #ffffff;
+      --line: rgba(45, 26, 16, 0.08);
       --max: 1080px;
       --radius: 16px;
-      --shadow: 0 12px 40px rgba(58, 33, 20, 0.06);
+      --shadow: 0 12px 40px rgba(45, 26, 16, 0.07);
+      --shadow-hover: 0 16px 48px rgba(45, 26, 16, 0.1);
     }
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -28,8 +32,9 @@
       line-height: 1.55;
       background: var(--w);
     }
-    a { color: var(--t); }
-    a:hover { text-decoration: underline; }
+    a { color: var(--t-deep); }
+    a:hover { color: var(--t); text-decoration: underline; }
+    a:focus-visible { outline: 2px solid var(--t); outline-offset: 3px; }
     .wrap { max-width: var(--max); margin: 0 auto; padding: 0 1.25rem; }
     /* Nav */
     header.site {
@@ -38,7 +43,8 @@
       z-index: 40;
       background: rgba(255, 255, 255, 0.92);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(91, 191, 186, 0.2);
+      border-bottom: 1px solid var(--line);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset;
     }
     .nav-inner {
       display: flex;
@@ -78,7 +84,8 @@
     .hero {
       padding: 3.5rem 0 4rem;
       background:
-        radial-gradient(ellipse 90% 60% at 50% -10%, rgba(91, 191, 186, 0.18), transparent 55%),
+        radial-gradient(ellipse 85% 55% at 70% -5%, var(--t-soft), transparent 50%),
+        radial-gradient(ellipse 60% 40% at 15% 100%, rgba(74, 176, 171, 0.06), transparent 45%),
         linear-gradient(180deg, var(--bg) 0%, var(--w) 45%);
     }
     .hero-grid {
@@ -98,7 +105,7 @@
     }
     .tagline {
       font-size: clamp(1rem, 2vw, 1.2rem);
-      color: var(--t);
+      color: var(--t-deep);
       font-weight: 600;
       margin: 0 0 1rem;
       max-width: 36ch;
@@ -120,13 +127,14 @@
       transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
     .btn:hover { transform: translateY(-1px); text-decoration: none; }
-    .btn-pri { background: var(--t); color: var(--w) !important; box-shadow: 0 4px 16px rgba(91, 191, 186, 0.35); }
-    .btn-pri:hover { color: var(--w) !important; }
+    .btn-pri { background: linear-gradient(165deg, var(--t) 0%, var(--t-deep) 100%); color: var(--w) !important; box-shadow: 0 4px 20px rgba(58, 154, 149, 0.38); }
+    .btn-pri:hover { color: var(--w) !important; box-shadow: 0 6px 24px rgba(58, 154, 149, 0.45); }
     .btn-sec {
       background: var(--w);
       color: var(--b) !important;
-      border: 2px solid rgba(58, 33, 20, 0.15);
+      border: 2px solid var(--line);
     }
+    .btn-sec:hover { border-color: rgba(74, 176, 171, 0.45); }
     .hero-art {
       display: flex;
       align-items: center;
@@ -137,7 +145,7 @@
       border-radius: var(--radius);
       padding: 2rem 1.75rem;
       box-shadow: var(--shadow);
-      border: 1px solid rgba(91, 191, 186, 0.25);
+      border: 1px solid rgba(74, 176, 171, 0.28);
       text-align: center;
       max-width: 340px;
     }
@@ -145,7 +153,10 @@
     .hero-card p { margin: 0; font-size: 0.82rem; color: var(--m); }
     /* Sections */
     section { padding: 3.75rem 0; scroll-margin-top: 72px; }
-    section.sec--alt { background: var(--bg); }
+    section.sec--alt {
+      background: var(--bg);
+      background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, transparent 28%);
+    }
     .sec-head {
       max-width: 40rem;
       margin-bottom: 2rem;
@@ -155,7 +166,7 @@
       font-weight: 700;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--t);
+      color: var(--t-deep);
       margin: 0 0 0.5rem;
     }
     .sec-head h2 { font-size: clamp(1.35rem, 2.8vw, 1.75rem); margin: 0 0 0.65rem; font-weight: 800; }
@@ -164,7 +175,7 @@
       margin: 0 0 2.5rem;
       padding: 1.35rem 1.5rem;
       border-left: 4px solid var(--t);
-      background: rgba(91, 191, 186, 0.08);
+      background: var(--t-soft);
       border-radius: 0 var(--radius) var(--radius) 0;
       font-size: 1rem;
       font-weight: 600;
@@ -181,11 +192,11 @@
       background: var(--w);
       border-radius: var(--radius);
       padding: 1.35rem 1.15rem;
-      border: 1px solid rgba(58, 33, 20, 0.07);
-      box-shadow: 0 4px 20px rgba(58, 33, 20, 0.04);
-      transition: border-color 0.2s, box-shadow 0.2s;
+      border: 1px solid var(--line);
+      box-shadow: 0 4px 20px rgba(45, 26, 16, 0.04);
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
     }
-    .card:hover { border-color: rgba(91, 191, 186, 0.45); box-shadow: var(--shadow); }
+    .card:hover { border-color: rgba(74, 176, 171, 0.42); box-shadow: var(--shadow); transform: translateY(-2px); }
     .card h3 { font-size: 0.92rem; margin: 0 0 0.45rem; font-weight: 700; }
     .card p { margin: 0; font-size: 0.84rem; color: var(--m); line-height: 1.45; }
     .split {
@@ -198,9 +209,9 @@
       background: var(--w);
       border-radius: var(--radius);
       padding: 1.5rem 1.35rem;
-      border: 1px solid rgba(58, 33, 20, 0.08);
+      border: 1px solid var(--line);
     }
-    .panel h3 { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--t); margin: 0 0 0.6rem; }
+    .panel h3 { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--t-deep); margin: 0 0 0.6rem; }
     .panel p { margin: 0; font-size: 0.9rem; color: var(--m); }
     .chips { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 1.5rem; }
     .chip {
@@ -208,7 +219,7 @@
       padding: 0.4rem 0.75rem;
       border-radius: 999px;
       background: var(--w);
-      border: 1px solid rgba(91, 191, 186, 0.35);
+      border: 1px solid rgba(74, 176, 171, 0.32);
       color: var(--b);
       line-height: 1.35;
     }
@@ -223,7 +234,7 @@
       padding: 1.25rem 1rem;
       background: var(--w);
       border-radius: var(--radius);
-      border: 1px solid rgba(58, 33, 20, 0.06);
+      border: 1px solid var(--line);
     }
     .step-num {
       width: 2.4rem;
@@ -246,6 +257,7 @@
       margin-top: 1rem;
     }
     @media (min-width: 520px) { .outcomes { grid-template-columns: 1fr 1fr; } }
+    .outcomes .out-item--wide { grid-column: 1 / -1; }
     .out-item {
       display: flex;
       gap: 0.65rem;
@@ -253,7 +265,7 @@
       padding: 0.85rem 1rem;
       background: var(--w);
       border-radius: 12px;
-      border: 1px solid rgba(58, 33, 20, 0.06);
+      border: 1px solid var(--line);
       font-size: 0.84rem;
       font-weight: 600;
     }
@@ -265,7 +277,7 @@
       margin-top: 0.42rem;
       border-radius: 50%;
       background: var(--t);
-      box-shadow: 0 0 0 4px rgba(91, 191, 186, 0.2);
+      box-shadow: 0 0 0 4px rgba(74, 176, 171, 0.2);
     }
     .cta-band {
       margin-top: 2.5rem;
@@ -276,7 +288,76 @@
       text-align: center;
     }
     .cta-band p { margin: 0 0 1rem; font-size: 1.1rem; font-weight: 700; }
-    .cta-band .btn-pri { background: var(--t); }
+    .cta-band .btn-pri { background: linear-gradient(165deg, var(--t) 0%, var(--t-deep) 100%); }
+    .subsec-title {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--t-deep);
+      margin: 0 0 0.75rem;
+      font-weight: 700;
+    }
+    .proc-grid {
+      display: grid;
+      gap: 1.15rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 700px) { .proc-grid { grid-template-columns: 1fr 1fr; } }
+    .proc-pillar {
+      background: var(--w);
+      border-radius: var(--radius);
+      padding: 1.5rem 1.35rem 1.35rem;
+      border: 1px solid var(--line);
+      box-shadow: 0 4px 24px rgba(45, 26, 16, 0.04);
+      position: relative;
+      overflow: hidden;
+      transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+    }
+    .proc-pillar::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--t) 0%, var(--t-deep) 100%);
+    }
+    .proc-pillar:hover {
+      box-shadow: var(--shadow-hover);
+      border-color: rgba(74, 176, 171, 0.28);
+      transform: translateY(-2px);
+    }
+    .proc-pillar h3 {
+      font-size: 1.02rem;
+      margin: 0 0 1rem;
+      font-weight: 800;
+      color: var(--b);
+      letter-spacing: -0.02em;
+    }
+    .proc-pillar ul { margin: 0; padding: 0; list-style: none; }
+    .proc-pillar li {
+      position: relative;
+      padding: 0.55rem 0 0.55rem 1.3rem;
+      font-size: 0.86rem;
+      color: var(--m);
+      line-height: 1.45;
+      border-bottom: 1px solid rgba(45, 26, 16, 0.06);
+    }
+    .proc-pillar li:last-child { border-bottom: 0; padding-bottom: 0; }
+    .proc-pillar li:first-child { padding-top: 0; }
+    .proc-pillar li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.78rem;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--t);
+      box-shadow: 0 0 0 3px var(--t-soft);
+    }
+    .proc-pillar li:first-child::before { top: 0.22rem; }
+    .soluciones-block { max-width: 52rem; margin: 0 auto; }
     /* Contact */
     .contact-cards {
       display: grid;
@@ -289,8 +370,10 @@
       padding: 1.5rem 1rem;
       background: var(--w);
       border-radius: var(--radius);
-      border: 1px solid rgba(58, 33, 20, 0.08);
+      border: 1px solid var(--line);
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
+    .c-card:hover { border-color: rgba(74, 176, 171, 0.3); box-shadow: 0 8px 28px rgba(45, 26, 16, 0.06); }
     .c-card .lbl { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--m); margin: 0 0 0.4rem; }
     .c-card a { font-size: 0.95rem; font-weight: 700; text-decoration: none; word-break: break-word; }
     .c-card a:hover { text-decoration: underline; }
@@ -299,7 +382,7 @@
       text-align: center;
       font-size: 0.78rem;
       color: var(--m);
-      border-top: 1px solid rgba(58, 33, 20, 0.08);
+      border-top: 1px solid var(--line);
     }
   </style>
 </head>
@@ -313,6 +396,7 @@
         <ul>
           <li><a href="#inicio">Inicio</a></li>
           <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#procesos">Procesos</a></li>
           <li><a href="#soluciones">Soluciones</a></li>
           <li><a href="#nosotros">Sobre nosotros</a></li>
           <li><a href="#contacto">Contacto</a></li>
@@ -380,27 +464,65 @@
       </div>
     </section>
 
-    <section id="soluciones" class="sec--alt">
+    <section id="procesos" class="sec--alt">
       <div class="wrap">
         <div class="sec-head">
-          <p class="sec-kicker">Casos de uso</p>
+          <p class="sec-kicker">Automatización</p>
+          <h2>Procesos que Automatizamos</h2>
+          <p>Cubrimos flujos comerciales, operativos, logísticos y de atención para reducir fricción y dar visibilidad en tiempo real.</p>
+        </div>
+        <div class="proc-grid">
+          <article class="proc-pillar">
+            <h3>Procesos Comerciales</h3>
+            <ul>
+              <li>Gestión de cotizaciones y presupuestos</li>
+              <li>Seguimiento de oportunidades</li>
+              <li>Generación automática de propuestas</li>
+            </ul>
+          </article>
+          <article class="proc-pillar">
+            <h3>Operaciones Técnicas</h3>
+            <ul>
+              <li>Asignación de técnicos y servicios</li>
+              <li>Gestión de recursos</li>
+              <li>Validación de certificados y permisos</li>
+            </ul>
+          </article>
+          <article class="proc-pillar">
+            <h3>Logística y Cadena de Suministro</h3>
+            <ul>
+              <li>Trazabilidad de entregas</li>
+              <li>Gestión de inventarios</li>
+              <li>Coordinación de transportistas</li>
+            </ul>
+          </article>
+          <article class="proc-pillar">
+            <h3>Servicio al Cliente</h3>
+            <ul>
+              <li>Atención de solicitudes entrantes</li>
+              <li>Seguimiento de reclamaciones</li>
+              <li>Actualización de estados en tiempo real</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="soluciones">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="sec-kicker">Impacto</p>
           <h2>Soluciones</h2>
           <p>Software que automatiza procesos industriales, con foco en ventas y operación.</p>
         </div>
-        <div class="split">
-          <div class="panel">
-            <h3>Ejemplo en campo</h3>
-            <p>En un contexto como una feria de proveedores, el equipo de ingeniería puede mostrar cómo automatizar cotizaciones en campo: un chatbot de WhatsApp genera cotizaciones en tiempo real y envía el PDF automáticamente. Los asesores o técnicos pueden cotizar desde WhatsApp en segundos, sin depender solo de oficina, para reducir tiempos comerciales y errores operativos y aligerar cuellos de botella en ventas y operación.</p>
-          </div>
-          <div>
-            <h3 style="margin:0 0 0.75rem;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--t);">Qué puedes lograr con nosotros</h3>
-            <div class="outcomes">
-              <div class="out-item">Mayor eficiencia operativa</div>
-              <div class="out-item">Reducción de tiempos en procesos clave</div>
-              <div class="out-item">Mejor toma de decisiones basada en datos</div>
-              <div class="out-item">Automatización de tareas repetitivas</div>
-              <div class="out-item" style="grid-column:1/-1;">Equipos enfocados en actividades de alto valor</div>
-            </div>
+        <div class="soluciones-block">
+          <h3 class="subsec-title">Qué puedes lograr con nosotros</h3>
+          <div class="outcomes">
+            <div class="out-item">Mayor eficiencia operativa</div>
+            <div class="out-item">Reducción de tiempos en procesos clave</div>
+            <div class="out-item">Mejor toma de decisiones basada en datos</div>
+            <div class="out-item">Automatización de tareas repetitivas</div>
+            <div class="out-item out-item--wide">Equipos enfocados en actividades de alto valor</div>
           </div>
         </div>
       </div>
@@ -423,7 +545,7 @@
             <p>Permitimos a las organizaciones trabajar de manera más eficiente, liberamos el potencial de los equipos al reducir la carga operativa, para que puedan enfocarse en actividades estratégicas.</p>
           </div>
         </div>
-        <h3 style="margin:0 0 0.75rem;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--t);">Qué nos diferencia</h3>
+        <h3 class="subsec-title">Qué nos diferencia</h3>
         <div class="chips" role="list">
           <span class="chip" role="listitem">Entendemos tu operación antes de proponer soluciones</span>
           <span class="chip" role="listitem">Diseñamos tecnología alineada a objetivos de negocio</span>
