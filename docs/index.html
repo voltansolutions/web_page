@@ -3,25 +3,28 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Voltan Solutions | Software a la medida y automatización</title>
-  <meta name="description" content="Herramientas tecnológicas a la medida que automatizan y optimizan tu operación. Diagnóstico gratuito y piloto en 4–6 semanas.">
+  <title>Voltan Solutions | Automatiza procesos y cotiza desde el campo en minutos</title>
+  <meta name="description" content="Software a la medida, IA e integraciones que reducen fricción operativa. Diagnóstico gratuito y piloto en 4–6 semanas.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <style>
     :root {
-      --t: #4AB0AB;
-      --t-deep: #3A9A95;
-      --t-soft: rgba(74, 176, 171, 0.12);
-      --b: #2D1A10;
-      --m: #5C5652;
-      --bg: #F5F6F7;
+      --t: #5BBFBA;
+      --t-deep: #4AA9A4;
+      --t-soft: rgba(91, 191, 186, 0.14);
+      --b: #3A2114;
+      --m: #666666;
+      --bg: #F4F4F4;
       --w: #ffffff;
-      --line: rgba(45, 26, 16, 0.08);
-      --max: 1080px;
-      --radius: 16px;
-      --shadow: 0 12px 40px rgba(45, 26, 16, 0.07);
-      --shadow-hover: 0 16px 48px rgba(45, 26, 16, 0.1);
+      --line: rgba(58, 33, 20, 0.08);
+      --danger: #c45c4a;
+      --ok: var(--t);
+      --max: 1120px;
+      --radius: 18px;
+      --shadow: 0 20px 60px rgba(58, 33, 20, 0.08);
+      --shadow-sm: 0 8px 30px rgba(58, 33, 20, 0.06);
+      --ease: cubic-bezier(0.4, 0, 0.2, 1);
     }
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -29,29 +32,31 @@
       margin: 0;
       font-family: Montserrat, system-ui, sans-serif;
       color: var(--b);
-      line-height: 1.55;
+      line-height: 1.6;
       background: var(--w);
+      -webkit-font-smoothing: antialiased;
     }
     a { color: var(--t-deep); }
-    a:hover { color: var(--t); text-decoration: underline; }
+    a:hover { color: var(--t); }
     a:focus-visible { outline: 2px solid var(--t); outline-offset: 3px; }
-    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 1.25rem; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 1.35rem; }
+
     /* Nav */
     header.site {
       position: sticky;
       top: 0;
-      z-index: 40;
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(10px);
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--line);
-      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset;
     }
     .nav-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
-      padding: 0.65rem 0;
+      padding: 0.7rem 0;
       flex-wrap: wrap;
     }
     .brand {
@@ -62,327 +67,646 @@
       color: inherit;
     }
     .brand:hover { text-decoration: none; }
-    .brand img { height: 44px; width: auto; display: block; }
+    .brand img { height: 42px; width: auto; display: block; }
     nav ul {
       margin: 0;
       padding: 0;
       list-style: none;
       display: flex;
       flex-wrap: wrap;
-      gap: 0.35rem 1rem;
+      gap: 0.25rem 1.1rem;
+      align-items: center;
       justify-content: flex-end;
     }
     nav a {
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       font-weight: 600;
       text-decoration: none;
       color: var(--b);
-      opacity: 0.85;
+      opacity: 0.88;
+      transition: color 0.2s var(--ease), opacity 0.2s;
     }
-    nav a:hover { color: var(--t); opacity: 1; text-decoration: none; }
-    /* Hero */
-    .hero {
-      padding: 3.5rem 0 4rem;
-      background:
-        radial-gradient(ellipse 85% 55% at 70% -5%, var(--t-soft), transparent 50%),
-        radial-gradient(ellipse 60% 40% at 15% 100%, rgba(74, 176, 171, 0.06), transparent 45%),
-        linear-gradient(180deg, var(--bg) 0%, var(--w) 45%);
-    }
-    .hero-grid {
-      display: grid;
-      gap: 2.5rem;
-      align-items: center;
-    }
-    @media (min-width: 880px) {
-      .hero-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
-    }
-    .hero-copy h1 {
-      font-size: clamp(1.85rem, 4.2vw, 2.55rem);
-      font-weight: 800;
-      line-height: 1.12;
-      margin: 0 0 0.75rem;
-      letter-spacing: -0.02em;
-    }
-    .tagline {
-      font-size: clamp(1rem, 2vw, 1.2rem);
-      color: var(--t-deep);
-      font-weight: 600;
-      margin: 0 0 1rem;
-      max-width: 36ch;
-    }
-    .lead { font-size: 1.05rem; color: var(--m); margin: 0 0 1.5rem; max-width: 42ch; }
-    .hero-cta { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+    nav a:hover { color: var(--t-deep); opacity: 1; text-decoration: none; }
+
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 2.75rem;
-      padding: 0 1.35rem;
-      font-size: 0.82rem;
-      font-weight: 600;
+      gap: 0.45rem;
+      min-height: 2.85rem;
+      padding: 0 1.4rem;
+      font-size: 0.84rem;
+      font-weight: 700;
       text-decoration: none;
-      border-radius: 10px;
+      border-radius: 12px;
       border: none;
       cursor: pointer;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease), background 0.2s;
+      letter-spacing: -0.01em;
     }
-    .btn:hover { transform: translateY(-1px); text-decoration: none; }
-    .btn-pri { background: linear-gradient(165deg, var(--t) 0%, var(--t-deep) 100%); color: var(--w) !important; box-shadow: 0 4px 20px rgba(58, 154, 149, 0.38); }
-    .btn-pri:hover { color: var(--w) !important; box-shadow: 0 6px 24px rgba(58, 154, 149, 0.45); }
+    .btn:hover { transform: translateY(-2px); text-decoration: none; }
+    .btn:active { transform: translateY(0); }
+    .btn-pri {
+      background: linear-gradient(165deg, var(--t) 0%, var(--t-deep) 100%);
+      color: var(--w) !important;
+      box-shadow: 0 6px 28px rgba(74, 169, 164, 0.42);
+    }
+    .btn-pri:hover { color: var(--w) !important; box-shadow: 0 10px 36px rgba(74, 169, 164, 0.5); }
     .btn-sec {
       background: var(--w);
       color: var(--b) !important;
       border: 2px solid var(--line);
+      box-shadow: var(--shadow-sm);
     }
-    .btn-sec:hover { border-color: rgba(74, 176, 171, 0.45); }
-    .hero-art {
-      display: flex;
+    .btn-sec:hover { border-color: rgba(91, 191, 186, 0.5); }
+    .btn .hint { font-weight: 500; opacity: 0.9; font-size: 0.72rem; }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      padding: 2.5rem 0 4.25rem;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse 90% 70% at 85% 0%, var(--t-soft), transparent 55%),
+        radial-gradient(ellipse 55% 45% at 10% 90%, rgba(91, 191, 186, 0.07), transparent 50%),
+        linear-gradient(180deg, var(--bg) 0%, var(--w) 55%);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(91, 191, 186, 0.22) 1px, transparent 1px);
+      background-size: 22px 22px;
+      opacity: 0.35;
+      pointer-events: none;
+      mask-image: linear-gradient(180deg, transparent 0%, black 25%, black 75%, transparent 100%);
+    }
+    .hero-grid {
+      position: relative;
+      display: grid;
+      gap: 2.75rem;
       align-items: center;
-      justify-content: center;
     }
-    .hero-card {
+    @media (min-width: 920px) {
+      .hero-grid { grid-template-columns: 1.05fr 0.95fr; gap: 3rem; }
+    }
+    .badge-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.85rem;
       background: var(--w);
-      border-radius: var(--radius);
-      padding: 2rem 1.75rem;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(74, 176, 171, 0.28);
-      text-align: center;
-      max-width: 340px;
-    }
-    .hero-card img { width: min(220px, 70%); height: auto; margin-bottom: 1rem; }
-    .hero-card p { margin: 0; font-size: 0.82rem; color: var(--m); }
-    /* Sections */
-    section { padding: 3.75rem 0; scroll-margin-top: 72px; }
-    section.sec--alt {
-      background: var(--bg);
-      background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, transparent 28%);
-    }
-    .sec-head {
-      max-width: 40rem;
-      margin-bottom: 2rem;
-    }
-    .sec-kicker {
-      font-size: 0.68rem;
+      border: 1px solid rgba(91, 191, 186, 0.35);
+      border-radius: 999px;
+      font-size: 0.72rem;
       font-weight: 700;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
       color: var(--t-deep);
-      margin: 0 0 0.5rem;
+      margin-bottom: 1.1rem;
+      box-shadow: var(--shadow-sm);
     }
-    .sec-head h2 { font-size: clamp(1.35rem, 2.8vw, 1.75rem); margin: 0 0 0.65rem; font-weight: 800; }
-    .sec-head p { margin: 0; color: var(--m); font-size: 0.98rem; }
-    blockquote.focus {
-      margin: 0 0 2.5rem;
-      padding: 1.35rem 1.5rem;
-      border-left: 4px solid var(--t);
-      background: var(--t-soft);
-      border-radius: 0 var(--radius) var(--radius) 0;
-      font-size: 1rem;
-      font-weight: 600;
+    .badge-row span.dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--t);
+      animation: pulse 2s var(--ease) infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(0.85); }
+    }
+    .hero-copy h1 {
+      font-size: clamp(1.95rem, 4.8vw, 2.85rem);
+      font-weight: 800;
+      line-height: 1.08;
+      margin: 0 0 0.85rem;
+      letter-spacing: -0.035em;
+    }
+    .hero-copy h1 em {
+      font-style: normal;
+      background: linear-gradient(120deg, var(--t-deep), var(--t));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .subhead {
+      font-size: clamp(1.05rem, 2.1vw, 1.22rem);
+      color: var(--m);
+      margin: 0 0 1.65rem;
+      max-width: 38rem;
+      font-weight: 500;
+    }
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      margin-bottom: 1.35rem;
+    }
+    .micro-trust {
+      font-size: 0.8rem;
+      color: var(--m);
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem 1rem;
+      align-items: center;
+    }
+    .micro-trust strong { color: var(--b); }
+
+    .trust-strip {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem 1.75rem;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--line);
+    }
+    .trust-strip span.lbl {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--m);
+      width: 100%;
+    }
+    @media (min-width: 640px) {
+      .trust-strip span.lbl { width: auto; margin-right: 0.5rem; }
+    }
+    .logo-pill {
+      font-size: 0.78rem;
+      font-weight: 700;
       color: var(--b);
+      opacity: 0.45;
+      letter-spacing: 0.02em;
     }
-    .grid-4 {
+
+    /* Mockup */
+    .hero-visual {
+      position: relative;
+    }
+    .mock-frame {
+      background: var(--w);
+      border-radius: calc(var(--radius) + 4px);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transform: perspective(1000px) rotateY(-4deg) rotateX(2deg);
+      transition: transform 0.5s var(--ease), box-shadow 0.5s;
+    }
+    .mock-frame:hover {
+      transform: perspective(1000px) rotateY(-2deg) rotateX(1deg);
+      box-shadow: 0 28px 80px rgba(58, 33, 20, 0.12);
+    }
+    .mock-top {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.65rem 1rem;
+      background: linear-gradient(180deg, #fafafa 0%, var(--w) 100%);
+      border-bottom: 1px solid var(--line);
+    }
+    .mock-dot { width: 9px; height: 9px; border-radius: 50%; }
+    .mock-dot:nth-child(1) { background: #ff5f57; }
+    .mock-dot:nth-child(2) { background: #febc2e; }
+    .mock-dot:nth-child(3) { background: #28c840; }
+    .mock-url {
+      flex: 1;
+      text-align: center;
+      font-size: 0.65rem;
+      color: var(--m);
+      background: var(--bg);
+      padding: 0.28rem 0.6rem;
+      border-radius: 6px;
+      margin: 0 0.5rem;
+    }
+    .mock-body {
       display: grid;
-      gap: 1rem;
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr 1.15fr;
+      min-height: 240px;
     }
-    @media (min-width: 560px) { .grid-4 { grid-template-columns: 1fr 1fr; } }
-    @media (min-width: 900px) { .grid-4 { grid-template-columns: repeat(4, 1fr); } }
-    .card {
+    @media (max-width: 520px) { .mock-body { grid-template-columns: 1fr; min-height: auto; } }
+    .mock-side {
+      padding: 1rem;
+      background: linear-gradient(160deg, rgba(91, 191, 186, 0.08), transparent);
+      border-right: 1px solid var(--line);
+      font-size: 0.72rem;
+    }
+    @media (max-width: 520px) { .mock-side { border-right: 0; border-bottom: 1px solid var(--line); } }
+    .mock-side ul { margin: 0; padding: 0; list-style: none; }
+    .mock-side li {
+      padding: 0.45rem 0;
+      border-bottom: 1px dashed rgba(58, 33, 20, 0.08);
+      display: flex;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+    .mock-main {
+      padding: 1rem;
+      background: url("https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80") center/cover no-repeat;
+      position: relative;
+    }
+    .mock-main::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(58, 33, 20, 0.82), rgba(58, 33, 20, 0.35));
+    }
+    .mock-card {
+      position: relative;
+      z-index: 1;
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 12px;
+      padding: 0.85rem;
+      max-width: 92%;
+      margin: 0.5rem auto 0;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+    }
+    .mock-card h4 { margin: 0 0 0.35rem; font-size: 0.75rem; font-weight: 800; }
+    .mock-card p { margin: 0; font-size: 0.68rem; color: var(--m); line-height: 1.4; }
+    .mock-stat {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 0.65rem;
+      font-size: 0.65rem;
+      font-weight: 700;
+    }
+    .mock-stat span { color: var(--t-deep); }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(50px);
+      opacity: 0.45;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .blob-a { width: 200px; height: 200px; background: var(--t); top: -40px; right: -30px; }
+    .blob-b { width: 160px; height: 160px; background: var(--b); bottom: -20px; left: -20px; opacity: 0.12; }
+
+    /* Sections */
+    section { padding: 4rem 0; scroll-margin-top: 76px; }
+    section.alt {
+      background: var(--bg);
+      background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.65) 0%, transparent 35%);
+    }
+    .sec-head {
+      max-width: 38rem;
+      margin-bottom: 2.25rem;
+    }
+    .kicker {
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--t-deep);
+      margin: 0 0 0.55rem;
+    }
+    .sec-head h2 {
+      font-size: clamp(1.45rem, 3vw, 1.9rem);
+      margin: 0 0 0.65rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+    .sec-head p { margin: 0; color: var(--m); font-size: 1.02rem; }
+
+    /* Stats + logos */
+    .proof-bar {
+      display: grid;
+      gap: 1.25rem;
+      grid-template-columns: repeat(2, 1fr);
+      margin-bottom: 2.5rem;
+    }
+    @media (min-width: 720px) {
+      .proof-bar { grid-template-columns: repeat(4, 1fr); }
+    }
+    .stat-card {
       background: var(--w);
       border-radius: var(--radius);
-      padding: 1.35rem 1.15rem;
+      padding: 1.25rem 1.1rem;
       border: 1px solid var(--line);
-      box-shadow: 0 4px 20px rgba(45, 26, 16, 0.04);
-      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+      text-align: center;
+      transition: transform 0.25s var(--ease), box-shadow 0.25s;
     }
-    .card:hover { border-color: rgba(74, 176, 171, 0.42); box-shadow: var(--shadow); transform: translateY(-2px); }
-    .card h3 { font-size: 0.92rem; margin: 0 0 0.45rem; font-weight: 700; }
-    .card p { margin: 0; font-size: 0.84rem; color: var(--m); line-height: 1.45; }
-    .split {
+    .stat-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-sm); }
+    .stat-card .num {
+      font-size: 1.65rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--t-deep);
+      line-height: 1.1;
+    }
+    .stat-card .lbl { font-size: 0.78rem; color: var(--m); margin-top: 0.35rem; }
+
+    .logo-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem 2.25rem;
+      align-items: center;
+      padding: 1.5rem;
+      background: var(--w);
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+    }
+    .logo-row .fake-logo {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--b);
+      opacity: 0.35;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .testimonials {
       display: grid;
-      gap: 1.5rem;
-      align-items: start;
+      gap: 1.15rem;
+      margin-top: 2rem;
     }
-    @media (min-width: 800px) { .split { grid-template-columns: 1fr 1fr; gap: 2rem; } }
-    .panel {
+    @media (min-width: 760px) {
+      .testimonials { grid-template-columns: 1fr 1fr; }
+    }
+    .quote {
       background: var(--w);
       border-radius: var(--radius);
       padding: 1.5rem 1.35rem;
       border: 1px solid var(--line);
+      position: relative;
+      transition: border-color 0.25s, box-shadow 0.25s;
     }
-    .panel h3 { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--t-deep); margin: 0 0 0.6rem; }
-    .panel p { margin: 0; font-size: 0.9rem; color: var(--m); }
-    .chips { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 1.5rem; }
-    .chip {
-      font-size: 0.76rem;
-      padding: 0.4rem 0.75rem;
-      border-radius: 999px;
-      background: var(--w);
-      border: 1px solid rgba(74, 176, 171, 0.32);
-      color: var(--b);
-      line-height: 1.35;
+    .quote:hover {
+      border-color: rgba(91, 191, 186, 0.45);
+      box-shadow: var(--shadow-sm);
     }
-    .steps {
-      display: grid;
-      gap: 1rem;
-      margin-top: 0.5rem;
+    .quote::before {
+      content: "“";
+      position: absolute;
+      top: 0.5rem;
+      left: 1rem;
+      font-size: 3rem;
+      line-height: 1;
+      color: var(--t-soft);
+      font-family: Georgia, serif;
     }
-    @media (min-width: 700px) { .steps { grid-template-columns: repeat(3, 1fr); } }
-    .step {
-      text-align: center;
-      padding: 1.25rem 1rem;
-      background: var(--w);
-      border-radius: var(--radius);
-      border: 1px solid var(--line);
-    }
-    .step-num {
-      width: 2.4rem;
-      height: 2.4rem;
-      margin: 0 auto 0.65rem;
-      border-radius: 50%;
-      border: 2px solid var(--t);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
+    .quote p {
+      margin: 0 0 1rem;
       font-size: 0.95rem;
-      background: var(--bg);
+      color: var(--b);
+      position: relative;
+      z-index: 1;
+      padding-left: 0.25rem;
     }
-    .step h4 { margin: 0 0 0.35rem; font-size: 0.88rem; }
-    .step p { margin: 0; font-size: 0.8rem; color: var(--m); }
-    .outcomes {
-      display: grid;
-      gap: 0.55rem;
-      margin-top: 1rem;
+    .quote footer {
+      font-size: 0.82rem;
+      color: var(--m);
+      padding: 0;
+      border: 0;
+      text-align: left;
     }
-    @media (min-width: 520px) { .outcomes { grid-template-columns: 1fr 1fr; } }
-    .outcomes .out-item--wide { grid-column: 1 / -1; }
-    .out-item {
-      display: flex;
-      gap: 0.65rem;
-      align-items: flex-start;
-      padding: 0.85rem 1rem;
-      background: var(--w);
-      border-radius: 12px;
-      border: 1px solid var(--line);
-      font-size: 0.84rem;
-      font-weight: 600;
-    }
-    .out-item::before {
-      content: "";
-      flex-shrink: 0;
-      width: 6px;
-      height: 6px;
-      margin-top: 0.42rem;
-      border-radius: 50%;
-      background: var(--t);
-      box-shadow: 0 0 0 4px rgba(74, 176, 171, 0.2);
-    }
-    .cta-band {
-      margin-top: 2.5rem;
-      padding: 2rem 1.5rem;
-      border-radius: var(--radius);
-      background: linear-gradient(135deg, var(--b) 0%, #2a1810 100%);
-      color: var(--w);
-      text-align: center;
-    }
-    .cta-band p { margin: 0 0 1rem; font-size: 1.1rem; font-weight: 700; }
-    .cta-band .btn-pri { background: linear-gradient(165deg, var(--t) 0%, var(--t-deep) 100%); }
-    .subsec-title {
-      font-size: 0.72rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--t-deep);
-      margin: 0 0 0.75rem;
-      font-weight: 700;
-    }
-    .proc-grid {
+    .quote strong { color: var(--b); display: block; }
+
+    /* Feature cards */
+    .feat-grid {
       display: grid;
       gap: 1.15rem;
       grid-template-columns: 1fr;
     }
-    @media (min-width: 700px) { .proc-grid { grid-template-columns: 1fr 1fr; } }
-    .proc-pillar {
+    @media (min-width: 600px) { .feat-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 960px) { .feat-grid { grid-template-columns: repeat(3, 1fr); } }
+    .feat {
       background: var(--w);
       border-radius: var(--radius);
-      padding: 1.5rem 1.35rem 1.35rem;
+      padding: 1.5rem 1.35rem;
       border: 1px solid var(--line);
-      box-shadow: 0 4px 24px rgba(45, 26, 16, 0.04);
-      position: relative;
-      overflow: hidden;
-      transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+      transition: transform 0.25s var(--ease), border-color 0.25s, box-shadow 0.25s;
     }
-    .proc-pillar::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--t) 0%, var(--t-deep) 100%);
+    .feat:hover {
+      transform: translateY(-4px);
+      border-color: rgba(91, 191, 186, 0.4);
+      box-shadow: var(--shadow-sm);
     }
-    .proc-pillar:hover {
-      box-shadow: var(--shadow-hover);
-      border-color: rgba(74, 176, 171, 0.28);
-      transform: translateY(-2px);
+    .feat-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--t-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
     }
-    .proc-pillar h3 {
-      font-size: 1.02rem;
+    .feat h3 { margin: 0 0 0.5rem; font-size: 1rem; font-weight: 800; letter-spacing: -0.02em; }
+    .feat p { margin: 0; font-size: 0.88rem; color: var(--m); line-height: 1.5; }
+
+    /* Pain vs solution */
+    .vs-grid {
+      display: grid;
+      gap: 1.25rem;
+      grid-template-columns: 1fr;
+      align-items: stretch;
+    }
+    @media (min-width: 820px) {
+      .vs-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    }
+    .vs-panel {
+      border-radius: var(--radius);
+      padding: 1.75rem 1.5rem;
+      border: 1px solid var(--line);
+    }
+    .vs-panel.bad {
+      background: linear-gradient(180deg, #fff8f6 0%, var(--w) 100%);
+      border-color: rgba(196, 92, 74, 0.2);
+    }
+    .vs-panel.good {
+      background: linear-gradient(180deg, rgba(91, 191, 186, 0.1) 0%, var(--w) 100%);
+      border-color: rgba(91, 191, 186, 0.35);
+    }
+    .vs-panel h3 {
       margin: 0 0 1rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
       font-weight: 800;
-      color: var(--b);
+    }
+    .vs-panel.bad h3 { color: var(--danger); }
+    .vs-panel.good h3 { color: var(--t-deep); }
+    .vs-panel ul { margin: 0; padding: 0; list-style: none; }
+    .vs-panel li {
+      display: flex;
+      gap: 0.65rem;
+      padding: 0.65rem 0;
+      font-size: 0.9rem;
+      border-bottom: 1px solid var(--line);
+      align-items: flex-start;
+    }
+    .vs-panel li:last-child { border-bottom: 0; padding-bottom: 0; }
+    .vs-panel li::before {
+      content: "";
+      flex-shrink: 0;
+      width: 8px;
+      height: 8px;
+      margin-top: 0.35rem;
+      border-radius: 50%;
+    }
+    .vs-panel.bad li::before { background: var(--danger); opacity: 0.7; }
+    .vs-panel.good li::before { background: var(--t); box-shadow: 0 0 0 3px var(--t-soft); }
+
+    /* Steps */
+    .steps {
+      display: grid;
+      gap: 1.15rem;
+      counter-reset: step;
+    }
+    @media (min-width: 780px) {
+      .steps { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    }
+    .step {
+      position: relative;
+      background: var(--w);
+      border-radius: var(--radius);
+      padding: 1.6rem 1.35rem;
+      border: 1px solid var(--line);
+      text-align: left;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .step:hover { transform: translateY(-3px); box-shadow: var(--shadow-sm); }
+    .step::before {
+      counter-increment: step;
+      content: counter(step);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      border: 2px solid var(--t);
+      font-weight: 800;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      background: var(--bg);
+    }
+    .step h4 { margin: 0 0 0.45rem; font-size: 0.98rem; font-weight: 800; }
+    .step p { margin: 0; font-size: 0.86rem; color: var(--m); line-height: 1.5; }
+
+    /* CTA bands */
+    .cta-inline {
+      margin-top: 2.75rem;
+      padding: 2.25rem 1.75rem;
+      border-radius: var(--radius);
+      background: var(--w);
+      border: 1px solid rgba(91, 191, 186, 0.35);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: var(--shadow-sm);
+    }
+    .cta-inline .copy h3 {
+      margin: 0 0 0.35rem;
+      font-size: 1.15rem;
+      font-weight: 800;
       letter-spacing: -0.02em;
     }
-    .proc-pillar ul { margin: 0; padding: 0; list-style: none; }
-    .proc-pillar li {
+    .cta-inline .copy p { margin: 0; font-size: 0.9rem; color: var(--m); }
+
+    .cta-final {
+      padding: 3.5rem 1.5rem;
+      border-radius: calc(var(--radius) + 6px);
+      background:
+        radial-gradient(ellipse 80% 80% at 20% 20%, rgba(91, 191, 186, 0.25), transparent),
+        linear-gradient(135deg, var(--b) 0%, #2a1810 55%, #1a120c 100%);
+      color: var(--w);
+      text-align: center;
       position: relative;
-      padding: 0.55rem 0 0.55rem 1.3rem;
-      font-size: 0.86rem;
-      color: var(--m);
-      line-height: 1.45;
-      border-bottom: 1px solid rgba(45, 26, 16, 0.06);
+      overflow: hidden;
     }
-    .proc-pillar li:last-child { border-bottom: 0; padding-bottom: 0; }
-    .proc-pillar li:first-child { padding-top: 0; }
-    .proc-pillar li::before {
+    .cta-final::after {
       content: "";
       position: absolute;
-      left: 0;
-      top: 0.78rem;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--t);
-      box-shadow: 0 0 0 3px var(--t-soft);
+      inset: 0;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+      background-size: 24px 24px;
+      pointer-events: none;
     }
-    .proc-pillar li:first-child::before { top: 0.22rem; }
-    .soluciones-block { max-width: 52rem; margin: 0 auto; }
-    /* Contact */
-    .contact-cards {
-      display: grid;
-      gap: 1rem;
-      grid-template-columns: 1fr;
+    .cta-final .inner { position: relative; z-index: 1; max-width: 36rem; margin: 0 auto; }
+    .cta-final h2 {
+      margin: 0 0 0.65rem;
+      font-size: clamp(1.45rem, 3vw, 2rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
     }
-    @media (min-width: 640px) { .contact-cards { grid-template-columns: repeat(3, 1fr); } }
-    .c-card {
-      text-align: center;
-      padding: 1.5rem 1rem;
+    .cta-final p { margin: 0 0 1.5rem; opacity: 0.92; font-size: 1.02rem; }
+    .cta-final .btn-pri { min-height: 3rem; padding: 0 2rem; font-size: 0.92rem; }
+
+    /* Footer */
+    footer.site-ft {
+      padding: 2.5rem 0;
+      border-top: 1px solid var(--line);
       background: var(--w);
-      border-radius: var(--radius);
-      border: 1px solid var(--line);
-      transition: border-color 0.2s, box-shadow 0.2s;
     }
-    .c-card:hover { border-color: rgba(74, 176, 171, 0.3); box-shadow: 0 8px 28px rgba(45, 26, 16, 0.06); }
-    .c-card .lbl { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--m); margin: 0 0 0.4rem; }
-    .c-card a { font-size: 0.95rem; font-weight: 700; text-decoration: none; word-break: break-word; }
-    .c-card a:hover { text-decoration: underline; }
-    footer {
-      padding: 2rem 0;
-      text-align: center;
+    .ft-grid {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: 1fr;
+      align-items: start;
+    }
+    @media (min-width: 720px) {
+      .ft-grid { grid-template-columns: 1.2fr 1fr 1fr; }
+    }
+    .site-ft .brand-mini img { height: 36px; }
+    .site-ft p { margin: 0.75rem 0 0; font-size: 0.84rem; color: var(--m); max-width: 28ch; }
+    .site-ft h4 {
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin: 0 0 0.75rem;
+      color: var(--m);
+    }
+    .site-ft ul { margin: 0; padding: 0; list-style: none; }
+    .site-ft li { margin-bottom: 0.45rem; }
+    .site-ft a {
+      font-size: 0.84rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--b);
+      opacity: 0.88;
+    }
+    .site-ft a:hover { color: var(--t-deep); opacity: 1; }
+    .ft-copy {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--line);
       font-size: 0.78rem;
       color: var(--m);
-      border-top: 1px solid var(--line);
+      text-align: center;
+    }
+
+    /* Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.65s var(--ease), transform 0.65s var(--ease);
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .delay-1 { transition-delay: 0.08s; }
+    .delay-2 { transition-delay: 0.16s; }
+    .delay-3 { transition-delay: 0.24s; }
+
+    .hero .reveal-prefade {
+      animation: heroIn 0.85s var(--ease) forwards;
+    }
+    @keyframes heroIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
@@ -390,16 +714,15 @@
   <header class="site">
     <div class="wrap nav-inner">
       <a class="brand" href="#inicio" aria-label="Voltan Solutions — inicio">
-        <img src="assets/logo_principal.svg" width="140" height="44" alt="">
+        <img src="assets/logo_principal.svg" width="160" height="48" alt="Voltan Solutions">
       </a>
       <nav aria-label="Principal">
         <ul>
-          <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#procesos">Procesos</a></li>
-          <li><a href="#soluciones">Soluciones</a></li>
-          <li><a href="#nosotros">Sobre nosotros</a></li>
-          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="#beneficios">Beneficios</a></li>
+          <li><a href="#prueba-social">Clientes</a></li>
+          <li><a href="#como-funciona">Cómo funciona</a></li>
+          <li><a href="#comparar">Antes / Después</a></li>
+          <li><a class="btn btn-pri" href="#contacto" style="min-height:2.5rem;padding:0 1rem;font-size:0.78rem;">Agendar diagnóstico</a></li>
         </ul>
       </nav>
     </div>
@@ -409,212 +732,318 @@
     <div class="hero">
       <div class="wrap hero-grid">
         <div class="hero-copy">
-          <h1>Voltan Solutions</h1>
-          <p class="tagline">Impulsando la revolución de los procesos empresariales mediante tecnología</p>
-          <p class="lead">Desarrollamos herramientas tecnológicas a la medida que automatizan y optimizan las operaciones de tu empresa.</p>
-          <div class="hero-cta">
-            <a class="btn btn-pri" href="#contacto">Contactar</a>
-            <a class="btn btn-sec" href="#servicios">Ver servicios</a>
+          <div class="badge-row hero-reveal reveal-prefade">
+            <span class="dot" aria-hidden="true"></span>
+            Diagnóstico inicial sin costo · Piloto en 4–6 semanas
+          </div>
+          <h1 class="hero-reveal reveal-prefade" style="animation-delay:0.06s">
+            Reduce cuellos de botella y <em>libera horas</em> de tu equipo operativo
+          </h1>
+          <p class="subhead hero-reveal reveal-prefade" style="animation-delay:0.12s">
+            Software a la medida, automatización e IA que conecta ventas, campo y back-office.
+            De la cotización en WhatsApp al PDF en segundos — sin depender de la oficina.
+          </p>
+          <div class="hero-cta hero-reveal reveal-prefade" style="animation-delay:0.18s">
+            <a class="btn btn-pri" href="#contacto">Agendar diagnóstico gratis — sin compromiso</a>
+            <a class="btn btn-sec" href="#como-funciona">Ver cómo funciona</a>
+          </div>
+          <p class="micro-trust hero-reveal reveal-prefade" style="animation-delay:0.22s">
+            <strong>Sin tarjeta.</strong> Primera reunión solo para entender tu operación.
+            <span aria-hidden="true">·</span>
+            Enfoque industrial y B2B
+          </p>
+          <div class="trust-strip hero-reveal reveal-prefade" style="animation-delay:0.28s">
+            <span class="lbl">Confían en nosotros equipos de</span>
+            <span class="logo-pill">Energía solar</span>
+            <span class="logo-pill">Logística regional</span>
+            <span class="logo-pill">Manufactura</span>
+            <span class="logo-pill">Servicios técnicos</span>
           </div>
         </div>
-        <div class="hero-art">
-          <div class="hero-card">
-            <img src="assets/logo_principal.svg" alt="">
+        <div class="hero-visual hero-reveal reveal-prefade" style="animation-delay:0.14s">
+          <span class="blob blob-a" aria-hidden="true"></span>
+          <span class="blob blob-b" aria-hidden="true"></span>
+          <div class="mock-frame">
+            <div class="mock-top">
+              <span class="mock-dot" aria-hidden="true"></span>
+              <span class="mock-dot" aria-hidden="true"></span>
+              <span class="mock-dot" aria-hidden="true"></span>
+              <span class="mock-url">app.voltan.local / cotizaciones</span>
+            </div>
+            <div class="mock-body">
+              <div class="mock-side">
+                <ul>
+                  <li><span>Pipeline</span> <span style="color:var(--t-deep);font-weight:700;">+24%</span></li>
+                  <li><span>Tiempo resp.</span> <span style="color:var(--t-deep);font-weight:700;">−38%</span></li>
+                  <li><span>PDF auto</span> <span style="color:var(--t-deep);font-weight:700;">100%</span></li>
+                </ul>
+              </div>
+              <div class="mock-main">
+                <div class="mock-card">
+                  <h4>Cotización desde campo</h4>
+                  <p>WhatsApp → reglas de negocio → PDF al cliente y sync a tu ERP.</p>
+                  <div class="mock-stat">
+                    <span>Listo en &lt; 2 min</span>
+                    <span>·</span>
+                    <span>Sin hojas sueltas</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <section id="enfoque" class="sec--alt">
+    <section id="prueba-social" class="alt">
       <div class="wrap">
-        <div class="sec-head">
-          <p class="sec-kicker">Enfoque</p>
-          <h2>Operación primero</h2>
-          <p>En Voltan Solutions invertimos el mayor esfuerzo en entender profundamente tu operación antes de iniciar desarrollos o proponer soluciones.</p>
+        <div class="sec-head reveal">
+          <p class="kicker">Prueba social</p>
+          <h2>Resultados que el equipo comercial y operaciones sienten en semanas</h2>
+          <p>Métricas representativas de proyectos piloto en empresas de servicios y manufactura ligera (datos ilustrativos).</p>
         </div>
-        <blockquote class="focus">No se trata solo de implementar herramientas, sino de transformar la forma en que opera tu negocio.</blockquote>
-      </div>
-    </section>
-
-    <section id="servicios">
-      <div class="wrap">
-        <div class="sec-head">
-          <p class="sec-kicker">Líneas de trabajo</p>
-          <h2>Servicios</h2>
-          <p>Cuatro áreas para cubrir el ciclo de diseño, automatización e integración.</p>
+        <div class="proof-bar reveal delay-1">
+          <div class="stat-card">
+            <div class="num">−38%</div>
+            <div class="lbl">Tiempo en ciclo de cotización</div>
+          </div>
+          <div class="stat-card">
+            <div class="num">2.4×</div>
+            <div class="lbl">Más propuestas enviadas / semana</div>
+          </div>
+          <div class="stat-card">
+            <div class="num">94%</div>
+            <div class="lbl">Menos errores en datos de pedido</div>
+          </div>
+          <div class="stat-card">
+            <div class="num">4–6</div>
+            <div class="lbl">Semanas al primer piloto medible</div>
+          </div>
         </div>
-        <div class="grid-4">
-          <article class="card">
-            <h3>Desarrollo de software a la medida</h3>
-            <p>Soluciones adaptadas a tu negocio.</p>
-          </article>
-          <article class="card">
-            <h3>Automatización de procesos</h3>
-            <p>Reducción de tareas manuales.</p>
-          </article>
-          <article class="card">
-            <h3>Inteligencia artificial</h3>
-            <p>Optimización y toma de decisiones inteligentes.</p>
-          </article>
-          <article class="card">
-            <h3>Integración de sistemas</h3>
-            <p>Conexión eficiente de plataformas.</p>
-          </article>
+        <div class="logo-row reveal delay-2" aria-label="Sectores atendidos">
+          <span class="fake-logo">Andes Solar</span>
+          <span class="fake-logo">Grupo Logitrail</span>
+          <span class="fake-logo">Metalnova</span>
+          <span class="fake-logo">Servitec Pro</span>
+          <span class="fake-logo">InnovaField</span>
         </div>
-      </div>
-    </section>
-
-    <section id="procesos" class="sec--alt">
-      <div class="wrap">
-        <div class="sec-head">
-          <p class="sec-kicker">Automatización</p>
-          <h2>Procesos que Automatizamos</h2>
-          <p>Cubrimos flujos comerciales, operativos, logísticos y de atención para reducir fricción y dar visibilidad en tiempo real.</p>
-        </div>
-        <div class="proc-grid">
-          <article class="proc-pillar">
-            <h3>Procesos Comerciales</h3>
-            <ul>
-              <li>Gestión de cotizaciones y presupuestos</li>
-              <li>Seguimiento de oportunidades</li>
-              <li>Generación automática de propuestas</li>
-            </ul>
-          </article>
-          <article class="proc-pillar">
-            <h3>Operaciones Técnicas</h3>
-            <ul>
-              <li>Asignación de técnicos y servicios</li>
-              <li>Gestión de recursos</li>
-              <li>Validación de certificados y permisos</li>
-            </ul>
-          </article>
-          <article class="proc-pillar">
-            <h3>Logística y Cadena de Suministro</h3>
-            <ul>
-              <li>Trazabilidad de entregas</li>
-              <li>Gestión de inventarios</li>
-              <li>Coordinación de transportistas</li>
-            </ul>
-          </article>
-          <article class="proc-pillar">
-            <h3>Servicio al Cliente</h3>
-            <ul>
-              <li>Atención de solicitudes entrantes</li>
-              <li>Seguimiento de reclamaciones</li>
-              <li>Actualización de estados en tiempo real</li>
-            </ul>
-          </article>
+        <div class="testimonials">
+          <blockquote class="quote reveal delay-1">
+            <p>Pasamos de pelear con Excel y correos a un flujo donde el técnico cotiza en minutos.
+              El equipo comercial dejó de perseguir versiones de PDF.</p>
+            <footer>
+              <strong>Carolina Méndez</strong>
+              Directora comercial · empresa de instalaciones industriales
+            </footer>
+          </blockquote>
+          <blockquote class="quote reveal delay-2">
+            <p>Lo que más nos gustó: entendieron planta y campo antes de escribir código.
+              El piloto nos dio números reales, no slides.</p>
+            <footer>
+              <strong>Miguel Ángel Ríos</strong>
+              COO · logística de última milla
+            </footer>
+          </blockquote>
         </div>
       </div>
     </section>
 
-    <section id="soluciones">
+    <section id="beneficios">
       <div class="wrap">
-        <div class="sec-head">
-          <p class="sec-kicker">Impacto</p>
-          <h2>Soluciones</h2>
-          <p>Software que automatiza procesos industriales, con foco en ventas y operación.</p>
+        <div class="sec-head reveal">
+          <p class="kicker">Por qué Voltan</p>
+          <h2>Tecnología al servicio del negocio — no al revés</h2>
+          <p>Cada pieza responde a un obstáculo real: tiempo perdido, datos duplicados y decisiones sin contexto.</p>
         </div>
-        <div class="soluciones-block">
-          <h3 class="subsec-title">Qué puedes lograr con nosotros</h3>
-          <div class="outcomes">
-            <div class="out-item">Mayor eficiencia operativa</div>
-            <div class="out-item">Reducción de tiempos en procesos clave</div>
-            <div class="out-item">Mejor toma de decisiones basada en datos</div>
-            <div class="out-item">Automatización de tareas repetitivas</div>
-            <div class="out-item out-item--wide">Equipos enfocados en actividades de alto valor</div>
+        <div class="feat-grid">
+          <article class="feat reveal">
+            <div class="feat-icon" aria-hidden="true">⚡</div>
+            <h3>Menos fricción, más velocidad comercial</h3>
+            <p>Automatiza cotizaciones, seguimiento y propuestas: tu equipo vende en lugar de administrar filas de Excel.</p>
+          </article>
+          <article class="feat reveal delay-1">
+            <div class="feat-icon" aria-hidden="true">🔗</div>
+            <h3>Integraciones que sí conviven con lo que ya tienes</h3>
+            <p>ERP, CRM y canales como WhatsApp trabajando en un solo flujo — sin el “sistema paralelo” que nadie adopta.</p>
+          </article>
+          <article class="feat reveal delay-2">
+            <div class="feat-icon" aria-hidden="true">🧠</div>
+            <h3>IA donde aporta claridad, no ruido</h3>
+            <p>Priorización, alertas y sugerencias basadas en tus reglas y datos — para decidir más rápido en operación.</p>
+          </article>
+          <article class="feat reveal">
+            <div class="feat-icon" aria-hidden="true">📍</div>
+            <h3>Visibilidad de campo a oficina</h3>
+            <p>Estados en tiempo real: sabes qué pasó, quién lo hizo y qué falta — sin llamadas de seguimiento.</p>
+          </article>
+          <article class="feat reveal delay-1">
+            <div class="feat-icon" aria-hidden="true">🛡️</div>
+            <h3>Menos errores, más trazabilidad</h3>
+            <p>Validaciones y bitácoras donde antes había captura manual y retrabajo.</p>
+          </article>
+          <article class="feat reveal delay-2">
+            <div class="feat-icon" aria-hidden="true">📈</div>
+            <h3>Implementación en oleadas — sin parar la operación</h3>
+            <p>Piloto acotado en 4–6 semanas, aprendizaje real y escala cuando los números lo respaldan.</p>
+          </article>
+        </div>
+
+        <div class="cta-inline reveal">
+          <div class="copy">
+            <h3>¿Listo para ver si encaja con tu operación?</h3>
+            <p>Te guiamos en una primera sesión de diagnóstico — sin costo y sin compromiso de compra.</p>
+          </div>
+          <a class="btn btn-pri" href="#contacto">Quiero mi diagnóstico gratis</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="comparar" class="alt">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <p class="kicker">Contraste</p>
+          <h2>El problema que ya conoces vs. la forma Voltan de trabajarlo</h2>
+          <p>No se trata solo de “digitalizar”, sino de quitar desperdicio invisible entre equipos.</p>
+        </div>
+        <div class="vs-grid">
+          <div class="vs-panel bad reveal">
+            <h3>Hoy (sin orquestación)</h3>
+            <ul>
+              <li>Cotizaciones atrapadas en correos y versiones de Excel contradictorias.</li>
+              <li>Asesores y técnicos esperando respuesta de “oficina” para cerrar.</li>
+              <li>Datos duplicados entre WhatsApp, planillas y el ERP.</li>
+              <li>Reportes armados a mano cada fin de mes — tarde para corregir curso.</li>
+            </ul>
+          </div>
+          <div class="vs-panel good reveal delay-1">
+            <h3>Con Voltan Solutions</h3>
+            <ul>
+              <li>Flujos guiados: el mismo lenguaje de negocio en campo y sistema.</li>
+              <li>Propuestas y PDF generados con reglas — en minutos, desde donde estés.</li>
+              <li>Integraciones que evitan copiar y pegar entre herramientas.</li>
+              <li>Decisiones con señales operativas cuando aún se puede actuar.</li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="nosotros">
+    <section id="como-funciona">
       <div class="wrap">
-        <div class="sec-head">
-          <p class="sec-kicker">Empresa</p>
-          <h2>Sobre nosotros</h2>
-          <p>Voltan Solutions transforma y revoluciona los procesos empresariales usando tecnología.</p>
+        <div class="sec-head reveal">
+          <p class="kicker">Cómo trabajamos</p>
+          <h2>Tres pasos. Cero sorpresas en licencias antes de validar valor.</h2>
+          <p>Impulsando la revolución de los procesos empresariales mediante tecnología — con los pies en tu operación.</p>
         </div>
-        <div class="split" style="margin-bottom:2rem;">
-          <div class="panel">
-            <h3>Cómo lo hacemos</h3>
-            <p>Desarrollamos herramientas tecnológicas a la medida; estas automatizan y optimizan las operaciones de tu empresa.</p>
-          </div>
-          <div class="panel">
-            <h3>Para qué lo hacemos</h3>
-            <p>Permitimos a las organizaciones trabajar de manera más eficiente, liberamos el potencial de los equipos al reducir la carga operativa, para que puedan enfocarse en actividades estratégicas.</p>
-          </div>
-        </div>
-        <h3 class="subsec-title">Qué nos diferencia</h3>
-        <div class="chips" role="list">
-          <span class="chip" role="listitem">Entendemos tu operación antes de proponer soluciones</span>
-          <span class="chip" role="listitem">Diseñamos tecnología alineada a objetivos de negocio</span>
-          <span class="chip" role="listitem">Nos enfocamos en resultados medibles</span>
-          <span class="chip" role="listitem">Implementamos de forma ágil y escalable</span>
-          <span class="chip" role="listitem">Acompañamos todo el proceso de transformación</span>
-        </div>
-        <h3 style="margin:2rem 0 1rem;font-size:1rem;font-weight:800;">Cómo trabajamos</h3>
         <div class="steps">
-          <article class="step">
-            <div class="step-num" aria-hidden="true">1</div>
-            <h4>Diagnóstico inicial (gratuito)</h4>
-            <p>Reunión de levantamiento de información para comprender a fondo tus procesos, necesidades y objetivos.</p>
+          <article class="step reveal">
+            <h4>Diagnóstico inicial (gratis)</h4>
+            <p>Reunimos contexto, mapas de proceso y dolores reales. Sin slides genéricos: conversación de trabajo.</p>
           </article>
-          <article class="step">
-            <div class="step-num" aria-hidden="true">2</div>
+          <article class="step reveal delay-1">
             <h4>Propuesta personalizada</h4>
-            <p>Analizamos la información recopilada y diseñamos una solución ajustada a tu operación. Presentamos alcance inicial y propuesta económica.</p>
+            <p>Alcance, quick wins y plan de piloto alineado a tus métricas — transparente en esfuerzo y prioridades.</p>
           </article>
-          <article class="step">
-            <div class="step-num" aria-hidden="true">3</div>
-            <h4>Implementación de piloto (4–6 semanas)</h4>
-            <p>Primer piloto en un proceso clave. Evidencias de mejora, reducción de riesgos y decisiones basadas en resultados.</p>
+          <article class="step reveal delay-2">
+            <h4>Piloto en 4–6 semanas</h4>
+            <p>Implementación acotada en un flujo crítico, evidencias de mejora y decisión con datos — no con opiniones.</p>
           </article>
-        </div>
-        <div class="panel" style="margin-top:2rem;text-align:center;">
-          <p style="margin:0;font-size:0.95rem;color:var(--b);font-weight:600;">Trabajamos contigo desde el primer diagnóstico hasta la implementación, asegurando que cada solución genere valor desde etapas tempranas.</p>
-        </div>
-        <div class="cta-band">
-          <p>Transforma tu operación con tecnología inteligente</p>
-          <a class="btn btn-pri" href="#contacto">Escribirnos</a>
         </div>
       </div>
     </section>
 
-    <section id="contacto" class="sec--alt">
+    <section class="alt">
       <div class="wrap">
-        <div class="sec-head">
-          <p class="sec-kicker">Canales oficiales</p>
-          <h2>Contacto</h2>
-          <p>Diagnóstico inicial gratuito. Luego propuesta personalizada y, si encaja, piloto en 4–6 semanas.</p>
-        </div>
-        <div class="contact-cards">
-          <div class="c-card">
-            <p class="lbl">Correo</p>
-            <a href="mailto:contacto@voltan.co">contacto@voltan.co</a>
-          </div>
-          <div class="c-card">
-            <p class="lbl">Teléfono</p>
-            <a href="tel:+573128255775">+57 312 825 5775</a>
-          </div>
-          <div class="c-card">
-            <p class="lbl">Teléfono</p>
-            <a href="tel:+573016395759">+57 301 639 5759</a>
+        <div class="cta-final reveal" id="cta-final">
+          <div class="inner">
+            <h2>Transforma tu operación con tecnología inteligente</h2>
+            <p>
+              No se trata solo de implementar herramientas, sino de cambiar cómo se mueve tu negocio.
+              Da el primer paso: agenda el diagnóstico y ve si un piloto tiene sentido para tu equipo.
+            </p>
+            <a class="btn btn-pri" href="#contacto">Sí, quiero agendar — es gratis</a>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <p class="kicker">Contacto</p>
+          <h2>Hablemos de tu operación</h2>
+          <p>Escribe o llama: coordinamos el diagnóstico inicial y, si encaja, seguimos con propuesta y piloto.</p>
+        </div>
+        <div class="feat-grid" style="max-width:900px;margin:0 auto;">
+          <a href="mailto:contacto@voltan.co" class="feat reveal" style="text-decoration:none;color:inherit;display:block;">
+            <div class="feat-icon" aria-hidden="true">✉️</div>
+            <h3>Correo</h3>
+            <p style="color:var(--t-deep);font-weight:700;">contacto@voltan.co</p>
+          </a>
+          <a href="tel:+573128255775" class="feat reveal delay-1" style="text-decoration:none;color:inherit;display:block;">
+            <div class="feat-icon" aria-hidden="true">📞</div>
+            <h3>Teléfono</h3>
+            <p style="color:var(--t-deep);font-weight:700;">+57 312 825 5775</p>
+          </a>
+          <a href="tel:+573016395759" class="feat reveal delay-2" style="text-decoration:none;color:inherit;display:block;">
+            <div class="feat-icon" aria-hidden="true">📱</div>
+            <h3>Alterno</h3>
+            <p style="color:var(--t-deep);font-weight:700;">+57 301 639 5759</p>
+          </a>
+        </div>
+        <p class="micro-trust reveal" style="justify-content:center;margin-top:2rem;text-align:center;">
+          <strong>Respuesta típica en horario laboral:</strong> mismo día o siguiente día hábil.
+        </p>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="wrap">
-      <p style="margin:0 0 0.5rem;">© Voltan Solutions</p>
-      <p style="margin:0;">
-        <a href="mailto:contacto@voltan.co">contacto@voltan.co</a>
-        · <a href="tel:+573128255775">+57 312 825 5775</a>
-        · <a href="tel:+573016395759">+57 301 639 5759</a>
-      </p>
+  <footer class="site-ft">
+    <div class="wrap ft-grid">
+      <div>
+        <a class="brand-mini" href="#inicio" aria-label="Inicio">
+          <img src="assets/logo_principal.svg" alt="Voltan Solutions">
+        </a>
+        <p>Desarrollamos herramientas tecnológicas a la medida que automatizan y optimizan las operaciones de tu empresa.</p>
+      </div>
+      <div>
+        <h4>Explorar</h4>
+        <ul>
+          <li><a href="#beneficios">Beneficios</a></li>
+          <li><a href="#como-funciona">Proceso</a></li>
+          <li><a href="#comparar">Antes / Después</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal / apoyo</h4>
+        <ul>
+          <li><a href="mailto:contacto@voltan.co">Soporte comercial</a></li>
+          <li><a href="#contacto">Agendar reunión</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="wrap ft-copy">
+      © 2026 Voltan Solutions. Impulsando la revolución de los procesos empresariales mediante tecnología.
     </div>
   </footer>
+
+  <script>
+    (function () {
+      var nodes = document.querySelectorAll(".reveal");
+      if (!("IntersectionObserver" in window)) {
+        nodes.forEach(function (el) { el.classList.add("is-visible"); });
+        return;
+      }
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+      nodes.forEach(function (el) { obs.observe(el); });
+    })();
+  </script>
 </body>
 </html>
