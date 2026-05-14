@@ -1,0 +1,5 @@
+# https://www.voltan.co/
+User-agent: *
+Allow: /
+
+Sitemap: https://www.voltan.co/sitemap.xml
